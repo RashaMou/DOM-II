@@ -28,27 +28,16 @@ headers.forEach(function(header){
     })
 });
 
-// headers.forEach(function(header){
-//     header.addEventListener('mouseout', function(){
-//         header.style.color = "orange";
-//     })
-// });
+// 3. wheel
 
+const text = document.querySelectorAll("p");
+const page = document.querySelector("html"); 
 
-// paras.forEach(function(paragraph){
-//     paragraph.addEventListener('select', function(){
-//         paragraph.style.color = "pink";
-//     })
-// });
-
-
-
-
-// when window is resized change background color
-
-//  Selecting text 
-
-// dblcliclk
-
-//drag and drop
+page.addEventListener('wheel', function(){
+    text.forEach(function(para){
+        para.style.backgroundColor = "orange";
+        para.style.borderRadius = "8px"
+        para.style.padding = "10px";
+    })
+})
 
