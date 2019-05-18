@@ -5,14 +5,15 @@
 // let navLinks = document.getElementsByClassName('nav-link');
 
 
-// 1. Visited links change color
+// 1. Visited links change color, nav links do not refresh the page
 const navLinks = document.querySelectorAll(".nav-link");
 console.log(navLinks);
 
 // each element in the nodelist has to have an event listener attached to it
 navLinks.forEach(function(link){
-    link.addEventListener('click', function(){
+    link.addEventListener('click', function(event){
         link.style.color = "orange";
+        event.preventDefault();
     })
 });
 
@@ -43,9 +44,9 @@ page.addEventListener('wheel', function(){
 
 //4. load event triggers alert that you really need a vacation
 
-// window.addEventListener('load', (event) => {
-//     alert('You REALLY need a vacation');
-// });
+window.addEventListener('load', (event) => {
+    alert('You REALLY need a vacation');
+});
 
 //5. double clicking an image in content area hides it and text fills full width
 
@@ -114,6 +115,22 @@ input.addEventListener('focus', function(){
 input.addEventListener('blur', function(){
     input.style.backgroundColor = "white";
 })
+
+// stop propagation
+
+const intro = document.querySelector(".intro");
+const headerImg = document.querySelector(".intro img");
+console.log(headerImg);
+
+headerImg.addEventListener('click', function(event){
+    console.log('header image was clicked');
+    event.stopPropagation();
+});
+
+intro.addEventListener('click', function(event){
+    console.log('intro was clicked');
+});
+
 
 
 
