@@ -62,6 +62,17 @@ images.forEach(function(image){
     })
 });
 
+// 6. resize event console logs the new window size
+
+const width = document.documentElement.clientWidth;
+const height = document.documentElement.clientHeight;
+
+window.addEventListener("resize", function(){
+    console.log(`Width: ${width}\nHeight: ${height}`)
+});
+
+
+
 
 
 
