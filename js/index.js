@@ -71,6 +71,60 @@ window.addEventListener("resize", function(){
     console.log(`Width: ${width}\nHeight: ${height}`)
 });
 
+// 7.8.9. input field background turns orange on focus and back to white on blur. Prevent page refresh default behavior for form
+
+// create form
+const form = document.createElement("form");
+
+// create input field
+const input = document.createElement("input");
+input.setAttribute("type", "email");
+
+// create submit button
+const submitBtn = document.createElement("button");
+submitBtn.setAttribute("class", "submit-btn");
+submitBtn.textContent = "Submit";
+console.log(submitBtn.textContent);
+
+// append to end of page
+const lastSection = document.querySelector('.content-pick');
+console.log(lastSection);
+
+const emailDiv = document.createElement("div");
+form.appendChild(emailDiv);
+lastSection.appendChild(form);
+
+
+// layout and styling
+lastSection.style.flexWrap = "wrap";
+emailDiv.appendChild(input);
+emailDiv.appendChild(submitBtn);
+form.style.margin = "auto";
+input.style.marginRight = "10px";
+input.style.marginBottom = "20px";
+
+form.addEventListener('click', function(event){
+    event.preventDefault();
+})
+
+input.addEventListener('focus', function(){
+    input.style.backgroundColor = "orange";
+})
+
+input.addEventListener('blur', function(){
+    input.style.backgroundColor = "white";
+})
+
+
+
+
+
+
+
+
+
+
+
 
 
 
