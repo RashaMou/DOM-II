@@ -43,9 +43,26 @@ page.addEventListener('wheel', function(){
 
 //4. load event triggers alert that you really need a vacation
 
-window.addEventListener('load', (event) => {
-    alert('You REALLY need a vacation');
+// window.addEventListener('load', (event) => {
+//     alert('You REALLY need a vacation');
+// });
+
+//5. double clicking an image in content area hides it and text fills full width
+
+const images = document.querySelectorAll(".img-content");
+const contentBox = document.querySelectorAll(".text-content");
+console.log(contentBox);
+
+images.forEach(function(image){
+    image.addEventListener('dblclick', function(){
+        image.style.display = "none";
+        contentBox.forEach(function(box){
+            box.style.width = "100%";
+        })
+    })
 });
+
+
 
 
 
