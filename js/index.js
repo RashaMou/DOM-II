@@ -153,10 +153,8 @@ div1.addEventListener('dragend', dragEnd);
 
 // empty listeners
 
-div2.addEventListener('dragover', dragOver);
 div2.addEventListener('dragenter', dragEnter);
 div2.addEventListener('dragleave', dragLeave);
-div2.addEventListener('drop', dragDrop);
 
 // drag functions
 
@@ -172,25 +170,14 @@ function dragEnd() {
 
 };
 
-function dragOver(e) {
-    e.preventDefault();
-}
-
 function dragEnter(e) {
     e.preventDefault();
     this.style.background = "#f4f4f4";
     this.style.border = "dashed";
-
 }
 
 function dragLeave() {
-    this.style.display = "none";
-
-}
-
-function dragDrop(e) {
-    e.preventDefault();
-
+    div2.append(draggableImage);
 }
 
 // stop propagation
