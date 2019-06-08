@@ -116,6 +116,83 @@ input.addEventListener('blur', function(){
     input.style.backgroundColor = "white";
 })
 
+// 10. Drag and Drop
+
+// create divs
+const div1 = document.createElement("div");
+div1.className = "fill";
+div1.setAttribute("draggable", "true");
+div1.style.position = "relative";
+div1.style.top = "10px";
+div1.style.height = "150px";
+div1.style.width = "150px";
+
+
+const div2 = document.createElement("div");
+div2.className = "empty";
+div2.style.display = "inline-block"
+div2.style.margin = "10px";
+div2.style.border = " 3px salmon solid";
+div2.style.backgroundColor = "white";
+div2.style.height = "150px";
+div2.style.width = "150px";
+lastSection.appendChild(div1);
+lastSection.appendChild(div2);
+
+// create draggable image
+
+const draggableImage = document.createElement("img");
+draggableImage.setAttribute("src", "http://source.unsplash.com/random/150x150");
+draggableImage.style.cursor = "pointer";
+div1.append(draggableImage);
+
+// fill listeners
+
+div1.addEventListener('dragstart', dragStart);
+div1.addEventListener('dragend', dragEnd);
+
+// empty listeners
+
+div2.addEventListener('dragover', dragOver);
+div2.addEventListener('dragenter', dragEnter);
+div2.addEventListener('dragleave', dragLeave);
+div2.addEventListener('drop', dragDrop);
+
+// drag functions
+
+function dragStart() {
+    this.style.border = "solid #ccc 4px";
+    setTimeout(() => (this.style.display = "none")) // makes image disappear from original box
+};
+
+function dragEnd() {
+    div1.style.height = "150px";
+    this.style.width = "150px";
+    this.style.position = "relative";
+
+};
+
+function dragOver(e) {
+    e.preventDefault();
+}
+
+function dragEnter(e) {
+    e.preventDefault();
+    this.style.background = "#f4f4f4";
+    this.style.border = "dashed";
+
+}
+
+function dragLeave() {
+    this.style.display = "none";
+
+}
+
+function dragDrop(e) {
+    e.preventDefault();
+
+}
+
 // stop propagation
 
 const intro = document.querySelector(".intro");
