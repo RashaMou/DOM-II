@@ -35,9 +35,3 @@ body {
   background-color: gray;
 }
 
-.animate {
-  transform: translate(100%);
-  transition-property: transform;
-  transition-duration: 2s;
-  transition-timing-function: linear;
-}
