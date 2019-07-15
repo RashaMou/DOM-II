@@ -22,21 +22,20 @@
 
 class Block {
   constructor (block) {
-    this.block = block;
-    this.blocks = document.querySelectorAll('.block');
-    this.blocks.addEventListener('click', this.rocket.bind(this));
+    this.block = document.querySelectorAll('.block');
+    this.block.forEach(block => addEventListener('click', this.rocket.bind(this)));
   }
 
   rocket() {
-    this.block.forEach(block => {
+    blocks.forEach(block => {
       if (block == event.target) {
-         event.target.style.order = "-1";
+        block.style.order = "-1";
       } else {
-        this.block.style.order = "0";
+        block.style.order = "10";
       }
-    })
-  } 
-}
+    } 
+  )}
+}; 
 
 const blocks = document.querySelectorAll('.block');
 blocks.forEach(block => new Block(block));
